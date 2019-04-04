@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+    />
+    <meta
+    name="description"
+    content="Map Pandas, a blogging platform with Maps"
+  />
+
+    <title>Map Pandas, tell your stories with maps</title>
+    <style>
+      body,
+      html,
+      #root {
+        width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+      }
+      .faq {
+        counter-reset: my-badass-counter;
+      }
+      .faq dt {
+        position: relative;
+        font: bold 16px Georgia;
+        padding: 4px 0 10px 0;
+      }
+      .faq dt:before {
+        content: counter(my-badass-counter);
+        counter-increment: my-badass-counter;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font: bold 50px/1 Sans-Serif;
+      }
+      .faq dd {
+        margin: 0 0 50px 0;
+      }
+      .faq dt,
+      .faq dd {
+        padding-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
