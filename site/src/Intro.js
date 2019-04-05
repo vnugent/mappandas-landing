@@ -31,7 +31,13 @@ const styles = theme => ({
     textAlign: "center",
     fontFamily: "'Cormorant Garamond', serif",
     color: "#37474f",
-    fontSize: "4em"
+    fontSize: "4em",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "4em"
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5em"
+    }
   },
   more: {
     display: "block",
@@ -173,7 +179,7 @@ class Intro extends PureComponent {
               <p>
                 <b>How MapPandas works for you</b>
               </p>
-              <p>Entepreneurs</p>
+              <p>Entrepreneur</p>
               <p>Professional bloggers</p>
               <p>Real estate businesses</p>
             </div>
