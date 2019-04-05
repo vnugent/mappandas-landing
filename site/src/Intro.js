@@ -1,58 +1,73 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import { Typography, Button, Grid } from "@material-ui/core";
-import { ArrowDownward } from "@material-ui/icons";
-
-import How from "./How";
-import Pricing from "./Pricing";
+import { Button, Grid, Hidden, Paper } from "@material-ui/core";
+import { AirplanemodeActive, Home } from "@material-ui/icons";
 import Subscribe from "./Subscribe";
+import Type from "./Type";
 
 const styles = theme => ({
   root: {
     //position: "absolute",
-    display: "flex",
+    display: "block",
     flexDirection: "column",
     alignItems: "stretch",
-    justifyContent: "center",
-    height: "100%"
+    justifyContent: "center"
+    //height: "100%"
   },
   hero: {
+    height: "80vh",
     display: "flex",
-    background: theme.palette.secondary.light
+    alignItems: "center",
+    flexWrap: "wrap",
+    paddingBottoom: "60px",
+    width: "100%",
+    backgroundImage: `url("assets/map-background.jpg")`,
+    backgroundSize: "100%",
+    animation: "animatedBackground 50s infinite linear"
   },
-  heroPadding: {
-    [theme.breakpoints.up("sm")]: {
-      width: "300px"
-    }
-  },
+  heroPadding: { flex: 1 },
   heroContent: {
-    display: "block",
-    [theme.breakpoints.up("sm")]: {
-      width: "580px",
-      paddingTop: "150px",
-      paddingBottom: "80px"
-      // flexShrink: 2
-    },
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing.unit * 4
-    }
+    textAlign: "center",
+    fontFamily: "'Cormorant Garamond', serif",
+    color: "#37474f",
+    fontSize: "4em"
   },
   more: {
-    //flexGrow: 4,
-    display: "flex",
-    marginTop: theme.spacing.unit * 8
-
-    // [theme.breakpoints.up("sm")]: {
-    //   paddingLeft: "100px"
-    // }
+    display: "block",
+    background: theme.palette.secondary.light
+  },
+  moreText: {
+    padding: theme.spacing.unit * 2,
+    fontSize: "2em",
+    fontFamily: "'Cormorant Garamond', serif",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center"
+    }
+  },
+  moreFigure: {
+    padding: theme.spacing.unit * 2,
+    display: "block",
+    margin: "0 auto"
   },
   postcard: {
     border: "10px solid #fff",
     boxShadow: "2px 2px 8px 0px rgba(148,148,148,1)"
   },
+  how: {
+    background: "fafafa",
+    textAlign: "center",
+    color: "#37474f",
+    fontFamily: "'Cormorant Garamond', serif",
+    minHeight: "45vh",
+    padding: theme.spacing.unit * 8
+  },
+  paper: {
+    padding: 10,
+    backgroundColor: "#e0f7fa"
+  },
   ctaButton: {
-    marginTop: theme.spacing.unit * 4
+    //marginTop: theme.spacing.unit * 4
   }
 });
 
@@ -63,68 +78,153 @@ class Intro extends PureComponent {
     return (
       <>
         <div class={classes.root}>
-          <div class={classes.hero}>
-            <div class={classes.heroPadding}>&nbsp;</div>
-            <div class={classes.heroContent}>
-              <Typography variant="h3" style={{ lineHeight: "1.2" }}>
-                All-in-one publishing platform that helps you create blog
-                <span style={{ color: "red" }}> contents </span>
-                with <span style={{ color: "red" }}> maps </span>
-              </Typography>
-              <Button
-                className={classes.ctaButton}
-                color="primary"
-                variant="contained"
-                href="https://app.mappandas.com"
+          <div className={classes.hero}>
+            <Hidden smDown>
+              <div class={classes.heroPadding}>&nbsp;</div>
+            </Hidden>
+            <div className={classes.heroContent}>
+              <div>
+                <b>Supercharge</b> your <b>blog</b> with <b>maps</b>
+              </div>
+
+              <div
+                style={{
+                  width: "80%",
+                  margin: "28px auto",
+                  padding: "18px",
+                  borderRadius: "15px",
+                  backgroundColor: "#e0f7fa",
+                  fontSize: "0.4em",
+                  lineHeight: "1.8em",
+                  border: "5px solid white"
+                }}
               >
-                Try It Now
-              </Button>
-            </div>
-            <div class={classes.heroPadding}>&nbsp;</div>
-          </div>
-          <div class={classes.more}>
-            <Grid spacing={24} container={true} alignContent="stretch">
-              <Grid item xs={12} md={2} />
-              <Grid item xs={12} md={4}>
-                <img
-                  alt="Screenshot of Map Pandas"
-                  style={{ maxWidth: "100%", height: "auto" }}
-                  className={classes.postcard}
-                  src="assets/chicago.jpg"
-                />
-                <figcaption style={{ color: "#a0a0a0", marginLeft: "15px" }}>
-                  created by Vilija J.
-                </figcaption>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Typography
-                  variant="h4"
-                  style={{
-                    textAlign: "left",
-                    alignSelf: "center",
-                    paddingTop: "10px",
-                    paddingRight: "10px",
-                    lineHeight: "1.2"
-                  }}
-                >
-                  We take the work out of building custom maps so you can focus
-                  on writing content
-                </Typography>
+                <div>
+                  <b>A new blogging platform with Maps</b>
+                </div>
+                <div>
+                  <Type
+                    strings={[
+                      "write about places",
+                      "let Pandas add drop pins for you"
+                    ]}
+                    waitUntilVisible={true}
+                    breakLines={false}
+                    loop={true}
+                    loopDelay={7000}
+                    speed={180}
+                    lifeLike={true}
+                  />
+                </div>
                 <Button
                   className={classes.ctaButton}
                   color="primary"
-                  variant="outlined"
-                  component={Link}
-                  to="/how-it-works"
+                  variant="contained"
+                  href="https://app.mappandas.com"
                 >
-                  How It Works <ArrowDownward />
+                  Try It Now
                 </Button>
+              </div>
+            </div>
+            <Hidden smDown>
+              <div class={classes.heroPadding} />
+            </Hidden>
+          </div>
+          <div class={classes.more}>
+            <Grid
+              spacing={8}
+              container={true}
+              alignItems="center"
+              alignContent="center"
+            >
+              <Grid item xs={0} md={2}>
+                &nbsp;
+              </Grid>
+
+              <Grid item xs={12} md={4}>
+                <div className={classes.moreText}>
+                  We take the work out of <b>building maps</b> so you can focus
+                  on <b>writing content</b>
+                </div>
+              </Grid>
+              <Grid item={true} xs={12} md={4}>
+                <figure className={classes.moreFigure}>
+                  <img
+                    alt="Screenshot of Map Pandas"
+                    style={{
+                      maxWidth: "100%"
+                      //   height: "auto"
+                    }}
+                    className={classes.postcard}
+                    src="assets/chicago.jpg"
+                  />
+                  <figcaption style={{ color: "#a0a0a0", marginLeft: "15px" }}>
+                    created by Vilija J.
+                  </figcaption>
+                </figure>
+              </Grid>
+              <Grid item xs={0} md={2}>
+                &nbsp;
+              </Grid>
+            </Grid>
+          </div>
+          <div className={classes.how}>
+            <div className={classes.moreText}>
+              <p>
+                <b>How MapPandas works for you</b>
+              </p>
+              <p>Entepreneurs</p>
+              <p>Professional bloggers</p>
+              <p>Real estate businesses</p>
+            </div>
+            <div className={classes.moreText}>
+              <b>
+                Create effective contents and grow more successful customers
+              </b>
+            </div>
+            <Grid container spacing={8}>
+              <Grid item xs={0} md={3}>
+                &nbsp;
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Paper className={classes.paper}>
+                  <p>
+                    <AirplanemodeActive />
+                  </p>
+                  <p>24 Hours in Bogota, Colombia</p>
+
+                  <Button
+                    className={classes.ctaButton}
+                    color="primary"
+                    variant="outlined"
+                    href="https://app.mappandas.com/p/3f8bb7b0-5659-11e9-8dfe-51c68035038c"
+                  >
+                    View example
+                  </Button>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Paper className={classes.paper}>
+                  <p>
+                    <Home />
+                  </p>
+                  <p>Real-easte listings</p>
+                  <Button
+                    className={classes.ctaButton}
+                    color="primary"
+                    variant="outlined"
+                    href="https://app.mappandas.com/p/78079160-56fc-11e9-96e0-19185548dc28"
+                  >
+                    View example
+                  </Button>
+                </Paper>
+              </Grid>
+              <Grid item xs={0} md={3}>
+                &nbsp;
               </Grid>
             </Grid>
           </div>
         </div>
-        <How />
-        <Pricing />
         <Subscribe />
       </>
     );

@@ -1,14 +1,19 @@
 import React, { PureComponent } from "react";
-import { Typography, Button, Grid, TextField } from "@material-ui/core";
+import { Button, Grid, TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
     display: "flex",
-    //marginTop: "150px",
     alignItem: "center",
-    minHeight: "100vh",
-    background: theme.palette.secondary.light
+    minHeight: "60vh",
+    background: "#f44336"
+  },
+  header: {
+    fontFamily: "'Cormorant Garamond', serif",
+    fontSize: "1.5em",
+    fontWeight: "bold",
+    color: "#212121"
   },
   emailField: {
     background: "#fafafa",
@@ -34,16 +39,9 @@ class Subscribe extends PureComponent {
         <Grid container={true} alignItems="center">
           <Grid item xs={12} md={4} />
           <Grid item xs={12} md={4}>
-            <Typography
-              variant="h5"
-              style={{
-                marginTop: "50px",
-                lineHeight: "1.2"
-              }}
-              gutterBottom={true}
-            >
+            <div className={classes.header}>
               Sign up for early access discount to the Pro and Business plans
-            </Typography>
+            </div>
             <this.MailChimp classes={classes} />
           </Grid>
           <Grid item xs={12} md={4} />
@@ -99,8 +97,8 @@ class Subscribe extends PureComponent {
                 Sign up
               </Button>
             </div>
-            <div style={{ marginTop: "60px" }}>
-              Questions or Comments? Email us @&nbsp;
+            <div className={classes.header} style={{ marginTop: "60px" }}>
+              Questions or Comments? Email us:&nbsp;
               <a href="mailto:hola@mappandas.com">hola@mappandas.com</a>
             </div>
           </div>

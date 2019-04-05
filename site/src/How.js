@@ -6,8 +6,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
-    display: "flex",
-    minHeight: "100vh"
+    display: "flex"
+    // minHeight: "100vh"
   },
   bullet: {
     background: "#d1c4e9",
@@ -77,9 +77,11 @@ class How extends PureComponent {
               See Pricing
             </Button>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <img
               style={{
+                width: "100%",
+                height: "auto",
                 display: "block",
                 marginLeft: "auto",
                 marginRight: "auto"

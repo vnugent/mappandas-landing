@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Button } from "@material-ui/core";
+import { AppBar, Toolbar, Button, Hidden } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
     flexGrow: 1
+  },
+  home: {
+    fontFamily: "'Cormorant Garamond', serif",
+    fontSize: "1.5em",
+    fontWeight: "bold",
+    color: "#37474f"
   },
   grow: {
     flexGrow: 1
@@ -22,53 +28,26 @@ class NavBar extends Component {
 
     return (
       <div className="classes.root">
-        <AppBar position="fixed" color="black">
-          <Toolbar className={classes.ctaButton}>
-            <Button
-              className={classes.ctaButton}
-              color="default"
-              component={Link}
-              to="/"
-            >
-              Map Pandas
-            </Button>
-            <Button
-              className={classes.ctaButton}
-              color="default"
-              component={Link}
-              to="/how-it-works"
-            >
-              how it works
-            </Button>
-            <Button
-              className={classes.ctaButton}
-              color="inherit"
-              component={Link}
-              to="/pricing"
-            >
-              Pricing
-            </Button>
-            <Button
-              className={classes.ctaButton}
-              color="inherit"
-              component={Link}
-              to="/access"
-            >
-              Early Access
-            </Button>
-            <Button
-              className={classes.ctaButton}
-              color="primary"
-              variant="outlined"
-              href="https://app.mappandas.com"
-            >
-              Launch App
-            </Button>
-          </Toolbar>
+        <AppBar position="fixed" color="default">
+          <Hidden smDown>{this.Expanded(this.props)}</Hidden>
         </AppBar>
       </div>
     );
   }
+
+  Expanded = ({ classes }) => (
+    <Toolbar className={classes.ctaButton}>
+      <div className={classes.home}>Map Pandas</div>
+      <Button
+        className={classes.ctaButton}
+        color="primary"
+        variant="outlined"
+        href="https://app.mappandas.com"
+      >
+        Launch App
+      </Button>
+    </Toolbar>
+  );
 }
 
 export default withStyles(styles)(NavBar);
