@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Button, Hidden } from "@material-ui/core";
 
@@ -27,7 +26,7 @@ class NavBar extends Component {
     const { classes } = this.props;
 
     return (
-      <div className="classes.root">
+      <div className={classes.root}>
         <AppBar position="fixed" color="default">
           <Hidden smDown>{this.Expanded(this.props)}</Hidden>
         </AppBar>

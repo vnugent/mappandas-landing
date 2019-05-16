@@ -1,10 +1,10 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { Button, Grid, Hidden, Paper } from "@material-ui/core";
 import { AirplanemodeActive, Home } from "@material-ui/icons";
 import Subscribe from "./Subscribe";
 import Type from "./Type";
+import { ReactComponent as Growth } from "./growth.svg";
 
 const styles = theme => ({
   root: {
@@ -68,6 +68,10 @@ const styles = theme => ({
     minHeight: "45vh",
     padding: theme.spacing.unit * 8
   },
+  growthSvg: {
+    height: "20vmin",
+    pointerEvents: "none"
+  },
   paper: {
     padding: 10,
     backgroundColor: "#e0f7fa"
@@ -117,9 +121,10 @@ class Intro extends PureComponent {
                     waitUntilVisible={true}
                     breakLines={false}
                     loop={true}
-                    loopDelay={7000}
+                    loopDelay={5000}
                     speed={180}
                     lifeLike={true}
+                    nextStringDelay={7000}
                   />
                 </div>
                 <Button
@@ -179,16 +184,17 @@ class Intro extends PureComponent {
               <p>
                 <b>How MapPandas works for you</b>
               </p>
-              <p>Entrepreneur</p>
+              <p>Entrepreneurs</p>
               <p>Professional bloggers</p>
               <p>Real estate businesses</p>
-            </div>
-            <div className={classes.moreText}>
               <b>
-                Create effective contents and grow more successful customers
+                Create effective blog contents with maps and grow more
+                successful customers
               </b>
             </div>
-            <Grid container spacing={8}>
+            <Growth className={classes.growthSvg} />
+
+            <Grid container spacing={8} style={{ marginTop: "15px" }}>
               <Grid item xs={0} md={3}>
                 &nbsp;
               </Grid>
@@ -214,7 +220,7 @@ class Intro extends PureComponent {
                   <p>
                     <Home />
                   </p>
-                  <p>Real-easte listings</p>
+                  <p>Real easte listings</p>
                   <Button
                     className={classes.ctaButton}
                     color="primary"
