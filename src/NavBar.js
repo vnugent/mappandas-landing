@@ -4,7 +4,8 @@ import { AppBar, Toolbar, Button, Hidden } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    backgroundColor: "transparent"
   },
   home: {
     fontFamily: "'Cormorant Garamond', serif",
@@ -26,12 +27,10 @@ class NavBar extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
-        <AppBar position="fixed" color="default">
+        <AppBar position="fixed" color="inherit" style={{ background: 'transparent', boxShadow: 'none' }}>
           <Hidden smDown>{this.Expanded(this.props)}</Hidden>
         </AppBar>
-      </div>
-    );
+   );
   }
 
   Expanded = ({ classes }) => (

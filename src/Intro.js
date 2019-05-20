@@ -5,6 +5,8 @@ import { AirplanemodeActive, Home } from "@material-ui/icons";
 import Subscribe from "./Subscribe";
 import Type from "./Type";
 import { ReactComponent as Growth } from "./growth.svg";
+import ResponsiveLayout from "./ResponsiveLayout";
+import LastN from "./feature/LastN";
 
 const styles = theme => ({
   root: {
@@ -16,7 +18,7 @@ const styles = theme => ({
     //height: "100%"
   },
   hero: {
-    height: "80vh",
+    height: "75vh",
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
@@ -28,12 +30,14 @@ const styles = theme => ({
   },
   heroPadding: { flex: 1 },
   heroContent: {
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
     textAlign: "center",
     fontFamily: "'Cormorant Garamond', serif",
     color: "#37474f",
-    fontSize: "4em",
+    //fontSize: "4em",
     [theme.breakpoints.up("sm")]: {
-      fontSize: "4em"
+      fontSize: "3.4em"
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "2.5em"
@@ -41,7 +45,8 @@ const styles = theme => ({
   },
   more: {
     display: "block",
-    background: theme.palette.secondary.light
+    background: theme.palette.secondary.light,
+    marginBottom: theme.spacing.unit * 5,
   },
   moreText: {
     padding: theme.spacing.unit * 2,
@@ -87,97 +92,62 @@ class Intro extends PureComponent {
 
     return (
       <>
+
         <div class={classes.root}>
           <div className={classes.hero}>
-            <Hidden smDown>
-              <div class={classes.heroPadding}>&nbsp;</div>
-            </Hidden>
-            <div className={classes.heroContent}>
-              <div>
-                <b>Supercharge</b> your <b>blog</b> with <b>maps</b>
-              </div>
+            <ResponsiveLayout>
+              <div className={classes.heroContent}>
+                <div>
+                  <b>Supercharge</b> your <b>blog</b> with <b>maps</b>
+                </div>
 
-              <div
-                style={{
-                  width: "80%",
-                  margin: "28px auto",
-                  padding: "18px",
-                  borderRadius: "15px",
-                  backgroundColor: "#e0f7fa",
-                  fontSize: "0.4em",
-                  lineHeight: "1.8em",
-                  border: "5px solid white"
-                }}
-              >
-                <div>
-                  <b>A new blogging platform with Maps</b>
-                </div>
-                <div>
-                  <Type
-                    strings={[
-                      "write about places",
-                      "let Pandas add drop pins for you"
-                    ]}
-                    waitUntilVisible={true}
-                    breakLines={false}
-                    loop={true}
-                    loopDelay={5000}
-                    speed={180}
-                    lifeLike={true}
-                    nextStringDelay={7000}
-                  />
-                </div>
-                <Button
-                  className={classes.ctaButton}
-                  color="primary"
-                  variant="contained"
-                  href="https://app.mappandas.com"
+                <div
+                  style={{
+                    width: "80%",
+                    margin: "28px auto",
+                    padding: "18px",
+                    borderRadius: "15px",
+                    backgroundColor: "#e0f7fa",
+                    fontSize: "0.4em",
+                    lineHeight: "1.8em",
+                    border: "5px solid white"
+                  }}
                 >
-                  Try It Now
-                </Button>
-              </div>
-            </div>
-            <Hidden smDown>
-              <div class={classes.heroPadding} />
-            </Hidden>
-          </div>
-          <div class={classes.more}>
-            <Grid
-              spacing={8}
-              container={true}
-              alignItems="center"
-              alignContent="center"
-            >
-              <Grid item xs={0} md={2}>
-                &nbsp;
-              </Grid>
+                  <div>
+                    Map Panda is a minimalist <b>blogging platform</b> with <b>Maps</b>
+                  </div>
 
-              <Grid item xs={12} md={4}>
-                <div className={classes.moreText}>
-                  We take the work out of <b>building maps</b> so you can focus
-                  on <b>writing content</b>
+                  <div>
+                    <Type
+                      strings={[
+                        "write about places",
+                        "let Pandas add drop pins for you"
+                      ]}
+                      waitUntilVisible={true}
+                      breakLines={false}
+                      loop={true}
+                      loopDelay={5000}
+                      speed={180}
+                      lifeLike={true}
+                      nextStringDelay={7000}
+                    />
+                  </div>
+
                 </div>
-              </Grid>
-              <Grid item={true} xs={12} md={4}>
-                <figure className={classes.moreFigure}>
-                  <img
-                    alt="Screenshot of Map Pandas"
-                    style={{
-                      maxWidth: "100%"
-                      //   height: "auto"
-                    }}
-                    className={classes.postcard}
-                    src="assets/chicago.jpg"
-                  />
-                  <figcaption style={{ color: "#a0a0a0", marginLeft: "15px" }}>
-                    created by Vilija J.
-                  </figcaption>
-                </figure>
-              </Grid>
-              <Grid item xs={0} md={2}>
-                &nbsp;
-              </Grid>
-            </Grid>
+              </div>
+            </ResponsiveLayout>
+          </div>
+
+
+
+          <div class={classes.more}>
+            <ResponsiveLayout>
+              <div className={classes.moreText}>
+                We take the work out of <b>building maps</b> so you can focus
+                  on <b>writing content</b>
+              </div>
+              <LastN />
+            </ResponsiveLayout>
           </div>
           <div className={classes.how}>
             <div className={classes.moreText}>
