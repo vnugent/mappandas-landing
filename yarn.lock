@@ -2378,7 +2378,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -9840,9 +9840,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typeit@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/typeit/-/typeit-6.0.2.tgz#c973c97262c6f5546b9efaa469d46c17478001a1"
-  integrity sha512-nZRQmobZqasw/Z7U2vrnSA2owaKFlSI53vfKpLdFxTsBzb59cJhqRkYGrFvd8UNtyeOt82KaX+4DF5+13c2GWA==
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/typeit/-/typeit-6.0.3.tgz#df614f3737a6b04c579a8082c2827cffb43b440c"
+  integrity sha512-H1aQQek03pP2njgb60AcUfvoSWZRDdv4xHiot+HGGiAWRaLjvv6NIUSVtqnDoFKacFeEnJGII6WxyJWcY5hirg==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"

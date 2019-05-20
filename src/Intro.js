@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { Button, Grid, Hidden, Paper } from "@material-ui/core";
-import { AirplanemodeActive, Home } from "@material-ui/icons";
+import { Button } from "@material-ui/core";
+import classNames from "classnames";
 import Subscribe from "./Subscribe";
 import Type from "./Type";
 import { ReactComponent as Growth } from "./growth.svg";
@@ -14,9 +14,33 @@ const styles = theme => ({
     display: "block",
     flexDirection: "column",
     alignItems: "stretch",
-    justifyContent: "center"
+    justifyContent: "center",
+    boxSizing: "border-box"
+
     //height: "100%"
   },
+  baseText: {
+    fontFamily: "'Cormorant Garamond', serif",
+    color: "#455a64"
+  },
+
+  h1: {
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "3.8em"
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.4em"
+    }
+  },
+
+  h2: {
+    fontSize: "2.4em"
+  },
+
+  h3: {
+    fontSize: "1.8em"
+  },
+
   hero: {
     height: "75vh",
     display: "flex",
@@ -33,29 +57,25 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 5,
     marginBottom: theme.spacing.unit * 5,
     textAlign: "center",
-    fontFamily: "'Cormorant Garamond', serif",
-    color: "#37474f",
-    //fontSize: "4em",
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "3.4em"
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2.5em"
-    }
+    color: "#455a64"
   },
-  more: {
+  moreSection: {
     display: "block",
-    background: theme.palette.secondary.light,
-    marginBottom: theme.spacing.unit * 5,
+    background: "#fafafa",
+    margin: `${theme.spacing.unit * 10}px auto`,
+    textAlign: "center",
+    boxSizing: "border-box"
   },
   moreText: {
-    padding: theme.spacing.unit * 2,
-    fontSize: "2em",
-    fontFamily: "'Cormorant Garamond', serif",
-    [theme.breakpoints.down("sm")]: {
-      textAlign: "center"
-    }
+    [theme.breakpoints.up("md")]: {
+      margin: `${theme.spacing.unit * 10}px ${theme.spacing.unit * 20}px`
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+    },
+    boxSizing: "border-box"
   },
+
   moreFigure: {
     padding: theme.spacing.unit * 2,
     display: "block",
@@ -66,7 +86,9 @@ const styles = theme => ({
     boxShadow: "2px 2px 8px 0px rgba(148,148,148,1)"
   },
   how: {
-    background: "fafafa",
+    background: "#e0f7fa",
+    borderRadius: "15px",
+    border: "15px solid white",
     textAlign: "center",
     color: "#37474f",
     fontFamily: "'Cormorant Garamond', serif",
@@ -82,7 +104,7 @@ const styles = theme => ({
     backgroundColor: "#e0f7fa"
   },
   ctaButton: {
-    //marginTop: theme.spacing.unit * 4
+    marginTop: theme.spacing.unit * 4
   }
 });
 
@@ -92,119 +114,107 @@ class Intro extends PureComponent {
 
     return (
       <>
-
         <div class={classes.root}>
           <div className={classes.hero}>
             <ResponsiveLayout>
               <div className={classes.heroContent}>
-                <div>
+                <BaseText headerClass="h1">
                   <b>Supercharge</b> your <b>blog</b> with <b>maps</b>
-                </div>
+                </BaseText>
 
                 <div
                   style={{
-                    width: "80%",
+                    width: "70%",
                     margin: "28px auto",
-                    padding: "18px",
+                    padding: "30px",
                     borderRadius: "15px",
                     backgroundColor: "#e0f7fa",
-                    fontSize: "0.4em",
-                    lineHeight: "1.8em",
+                    opacity: 0.8,
                     border: "5px solid white"
                   }}
                 >
-                  <div>
-                    Map Panda is a minimalist <b>blogging platform</b> with <b>Maps</b>
-                  </div>
-
-                  <div>
-                    <Type
-                      strings={[
-                        "write about places",
-                        "let Pandas add drop pins for you"
-                      ]}
-                      waitUntilVisible={true}
-                      breakLines={false}
-                      loop={true}
-                      loopDelay={5000}
-                      speed={180}
-                      lifeLike={true}
-                      nextStringDelay={7000}
-                    />
-                  </div>
-
+                  <BaseText headerClass="h3">
+                    Map Panda is a minimalist <b>blogging platform</b> with{" "}
+                    <b>Maps</b>
+                  </BaseText>
+                  <Button
+                    className={classes.ctaButton}
+                    color="primary"
+                    variant="outlined"
+                    href="https://app.mappandas.com"
+                  >
+                    Start blogging
+                  </Button>
                 </div>
               </div>
             </ResponsiveLayout>
           </div>
 
-
-
-          <div class={classes.more}>
+          <div class={classes.moreSection}>
             <ResponsiveLayout>
-              <div className={classes.moreText}>
-                We take the work out of <b>building maps</b> so you can focus
-                  on <b>writing content</b>
+              <div
+                style={{
+                  display: "block"
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "1.5em",
+                    lineHeight: "2em",
+                    color: "#607d8b",
+                    height: "2.5em",
+                    padding: "10px",
+                    display: "block"
+                  }}
+                >
+                  <Type
+                    strings={[
+                      "Barcelona",
+                      "Portland Mercado",
+                      "3 Abbey Road, Westminster",
+                      "Yelapa, Mexico",
+                      "Chiang Mai"
+                    ]}
+                  />
+                </div>
+                <div className={classes.moreText}>
+                  <BaseText headerClass="h2">
+                    <b>
+                      Our app lets you blog about places and add markers to maps
+                      with ease
+                    </b>
+                  </BaseText>
+                </div>
+                <div
+                  style={{
+                    background: "#fafafa",
+                    borderTop: "1px solid #efefef",
+                    margin: "35px 35px"
+                  }}
+                />
+                <div style={{ marginTop: 10 }}>
+                  <LastN />
+                </div>
               </div>
-              <LastN />
             </ResponsiveLayout>
           </div>
           <div className={classes.how}>
-            <div className={classes.moreText}>
-              <p>
-                <b>How MapPandas works for you</b>
-              </p>
-              <p>Entrepreneurs</p>
-              <p>Professional bloggers</p>
-              <p>Real estate businesses</p>
-              <b>
+            <ResponsiveLayout>
+              <Growth className={classes.growthSvg} />
+
+              <BaseText headerClass="h2">How MapPandas works for you</BaseText>
+              <BaseText headerClass="h1" styles={{ lineHeight: "1em" }}>
+                <b>
+                  <p>Entrepreneurs</p>
+                  <p>Professional bloggers</p>
+                  <p>Real estate businesses</p>
+                </b>
+              </BaseText>
+              <BaseText headerClass="h2">
                 Create effective blog contents with maps and grow more
                 successful customers
-              </b>
-            </div>
-            <Growth className={classes.growthSvg} />
-
-            <Grid container spacing={8} style={{ marginTop: "15px" }}>
-              <Grid item xs={0} md={3}>
-                &nbsp;
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Paper className={classes.paper}>
-                  <p>
-                    <AirplanemodeActive />
-                  </p>
-                  <p>24 Hours in Bogota, Colombia</p>
-
-                  <Button
-                    className={classes.ctaButton}
-                    color="primary"
-                    variant="outlined"
-                    href="https://app.mappandas.com/p/3f8bb7b0-5659-11e9-8dfe-51c68035038c"
-                  >
-                    View example
-                  </Button>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Paper className={classes.paper}>
-                  <p>
-                    <Home />
-                  </p>
-                  <p>Real easte listings</p>
-                  <Button
-                    className={classes.ctaButton}
-                    color="primary"
-                    variant="outlined"
-                    href="https://app.mappandas.com/p/78079160-56fc-11e9-96e0-19185548dc28"
-                  >
-                    View example
-                  </Button>
-                </Paper>
-              </Grid>
-              <Grid item xs={0} md={3}>
-                &nbsp;
-              </Grid>
-            </Grid>
+              </BaseText>
+            </ResponsiveLayout>
           </div>
         </div>
         <Subscribe />
@@ -212,5 +222,16 @@ class Intro extends PureComponent {
     );
   }
 }
+
+const BaseText = withStyles(styles)(({ classes, headerClass, children }) => (
+  <div
+    className={classNames(
+      classes.baseText,
+      headerClass && classes[headerClass]
+    )}
+  >
+    {children}
+  </div>
+));
 
 export default withStyles(styles)(Intro);

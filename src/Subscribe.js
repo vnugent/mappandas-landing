@@ -40,7 +40,8 @@ class Subscribe extends PureComponent {
           <Grid item xs={12} md={4} />
           <Grid item xs={12} md={4}>
             <div className={classes.header}>
-              Sign up for early access discount to the Pro and Business plans
+              Sign up to our mailing list to receive updates and early access
+              discount to the Pro and Business plans
             </div>
             <this.MailChimp classes={classes} />
           </Grid>
